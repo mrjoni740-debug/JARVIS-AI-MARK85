@@ -210,14 +210,39 @@ function addMessage(text,type){
  chat.scrollTop=chat.scrollHeight;
 }
 
-function sendMessage(){
+async function sendMessage(){
  const text=input.value.trim();
  if(!text)return;
+
  addMessage(text,"user");
  input.value="";
- setTimeout(()=>{
-  addMessage("I received your command. My AI connection is not configured yet. The next development step will connect a real AI model to JARVIS.","bot");
- },400);
+
+ addMessage("JARVIS is thinking...","bot");
+
+ try{
+  const response=await fetch(API_URL,{
+   method:"POST",
+   headers:{
+    "Content-Type":"text/plain;charset=utf-8"
+   },
+   body:JSON.stringify({
+    message:text
+   })
+  });
+
+  const data=await response.json();
+
+  chat.lastChild.remove();
+
+  addMessage(
+   data.reply || data.message || "AI response not found.",
+   "bot"
+  );
+
+ }catch(error){
+  chat.lastChild.remove();
+  addMessage("Connection error. Please check your AI backend.","bot");
+ }
 }
 
 input.addEventListener("keydown",e=>{
