@@ -236,9 +236,9 @@ async function sendMessage(){
   chat.lastChild.remove();
 
   addMessage(
-   data.reply || data.message || "AI response not found.",
-   "bot"
-  );
+ data.answer || data.reply || data.message || "AI response not found.",
+ "bot"
+);
 
  }catch(error){
   chat.lastChild.remove();
