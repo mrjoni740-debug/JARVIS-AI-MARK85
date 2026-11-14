@@ -222,6 +222,7 @@ async function sendMessage(){
 
  try{
   const response=await fetch(API_URL,{
+ redirect:"follow",
    method:"POST",
    headers:{
     "Content-Type":"text/plain;charset=utf-8"
