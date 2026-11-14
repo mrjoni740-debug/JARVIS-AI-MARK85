@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#030914">
+<title>JARVIS AI | MARK 85</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+ --blue:#00d9ff;
+ --cyan:#00fff0;
+ --bg:#030914;
+ --panel:rgba(9,27,48,.82);
+}
+body{
+ background:radial-gradient(ellipse at 50% 20%,#102d4b 0%,#030914 65%);
+ color:#eafaff;
+ font-family:Arial,sans-serif;
+ min-height:100vh;
+ overflow-x:hidden;
+}
+body:before{
+ content:"";
+ position:fixed;inset:0;
+ pointer-events:none;
+ background-image:linear-gradient(rgba(0,217,255,.035) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(0,217,255,.035) 1px,transparent 1px);
+ background-size:30px 30px;
+}
+header{
+ display:flex;justify-content:space-between;
+ align-items:center;padding:17px 18px;
+ border-bottom:1px solid #00d9ff55;
+ background:#061426cc;
+ position:relative;z-index:2;
+}
+.logo{font-size:22px;font-weight:900;letter-spacing:3px;color:var(--cyan)}
+.logo span{color:white;font-size:11px;display:block;letter-spacing:4px;margin-top:4px}
+.status{font-size:10px;color:#00ffad;letter-spacing:1px}
+main{max-width:700px;margin:auto;padding:20px 15px 35px;position:relative}
+.panel{
+ background:var(--panel);
+ border:1px solid #00d9ff44;
+ border-radius:18px;
+ padding:17px;
+ box-shadow:0 0 25px #00d9ff12;
+ margin-bottom:17px;
+}
+.section-title{
+ color:var(--cyan);font-size:11px;
+ letter-spacing:3px;margin-bottom:15px;
+}
+.reactor{
+ width:205px;height:205px;
+ margin:10px auto 20px;
+ border-radius:50%;
+ display:flex;align-items:center;justify-content:center;
+ position:relative;
+ background:radial-gradient(circle,#0c4160 0%,#06192d 48%,#020914 70%);
+ border:2px solid #00d9ff;
+ box-shadow:0 0 20px #00d9ff, inset 0 0 25px #00d9ff66;
+ animation:glow 3s infinite alternate;
+}
+.reactor:before,.reactor:after{
+ content:"";position:absolute;border-radius:50%;
+ border:2px dashed #00d9ff;
+ inset:10px;animation:spin 15s linear infinite;
+}
+.reactor:after{
+ inset:25px;border-style:solid;
+ border-color:transparent #00fff0 #00fff0 transparent;
+ animation:spin 5s linear infinite reverse;
+}
+.core{
+ width:85px;height:85px;border-radius:50%;
+ background:radial-gradient(circle,#fff 0%,#00fff0 25%,#0076b8 60%,#00172a 100%);
+ box-shadow:0 0 35px #00fff0;
+ z-index:1;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes glow{to{box-shadow:0 0 40px #00d9ff,inset 0 0 35px #00d9ff}}
+.center{text-align:center}
+.name{font-size:25px;letter-spacing:5px;font-weight:bold}
+.sub{font-size:10px;color:#72cde5;letter-spacing:3px;margin-top:8px}
+.metrics{
+ display:grid;grid-template-columns:repeat(3,1fr);gap:9px;
+}
+.metric{
+ text-align:center;padding:13px 4px;
+ background:#061b2e;border:1px solid #00d9ff35;border-radius:12px;
+}
+.metric b{display:block;color:var(--cyan);font-size:17px;margin-bottom:6px}
+.metric small{font-size:9px;color:#90b7c9;letter-spacing:1px}
+.chat{
+ height:250px;overflow-y:auto;
+ display:flex;flex-direction:column;gap:12px;
+ padding:5px 2px;
+}
+.msg{
+ padding:11px 13px;border-radius:12px;
+ max-width:90%;font-size:13px;line-height:1.6;
+}
+.bot{background:#092c43;border:1px solid #00d9ff55;align-self:flex-start}
+.user{background:#07516a;align-self:flex-end}
+.input-row{display:flex;gap:8px;margin-top:12px}
+input{
+ min-width:0;flex:1;padding:14px;
+ border:1px solid #00d9ff66;border-radius:12px;
+ background:#020d1b;color:white;outline:none;
+}
+button{
+ border:1px solid #00d9ff;
+ background:linear-gradient(135deg,#075b83,#07304b);
+ color:white;border-radius:12px;
+ padding:12px 15px;font-weight:bold;
+ cursor:pointer;
+}
+button:active{transform:scale(.96)}
+.voice{
+ display:block;width:100%;margin-top:12px;
+ padding:14px;border-radius:30px;
+ background:linear-gradient(90deg,#007caa,#00a9b8);
+ letter-spacing:2px;
+}
+.features{
+ display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+}
+.feature{
+ padding:15px 10px;background:#061b2e;
+ border:1px solid #00d9ff33;border-radius:12px;
+ text-align:center;font-size:12px;
+}
+.feature span{font-size:22px;display:block;margin-bottom:8px}
+footer{text-align:center;color:#527d91;font-size:10px;padding:20px}
+</style>
+</head>
+
+<body>
+<header>
+ <div class="logo">JARVIS<span>MARK 85 • AI SYSTEM</span></div>
+ <div class="status">● SYSTEM ONLINE</div>
+</header>
+
+<main>
+ <div class="panel center">
+  <div class="section-title">ARTIFICIAL INTELLIGENCE CORE</div>
+  <div class="reactor"><div class="core"></div></div>
+  <div class="name">J.A.R.V.I.S.</div>
+  <div class="sub">JUST A RATHER VERY INTELLIGENT SYSTEM</div>
+ </div>
+
+ <div class="panel">
+  <div class="section-title">SYSTEM MONITOR</div>
+  <div class="metrics">
+   <div class="metric"><b id="clock">--:--</b><small>LOCAL TIME</small></div>
+   <div class="metric"><b>ONLINE</b><small>INTERFACE</small></div>
+   <div class="metric"><b id="date">--</b><small>DATE</small></div>
+  </div>
+ </div>
+
+ <div class="panel">
+  <div class="section-title">AI COMMUNICATION TERMINAL</div>
+  <div class="chat" id="chat">
+   <div class="msg bot">Hello! I am JARVIS MARK 85. Your futuristic assistant interface is ready. How can I help you?</div>
+  </div>
+  <div class="input-row">
+   <input id="message" placeholder="Type your command..." />
+   <button onclick="sendMessage()">SEND</button>
+  </div>
+  <button class="voice" onclick="startVoice()">🎙 ACTIVATE VOICE</button>
+ </div>
+
+ <div class="panel">
+  <div class="section-title">ADVANCED MODULES</div>
+  <div class="features">
+   <div class="feature"><span>🧠</span>AI CHAT</div>
+   <div class="feature"><span>🎙️</span>VOICE CONTROL</div>
+   <div class="feature"><span>🌐</span>WEB SEARCH</div>
+   <div class="feature"><span>👁️</span>VISION AI</div>
+   <div class="feature"><span>💻</span>CODING AI</div>
+   <div class="feature"><span>⚙️</span>SYSTEM CONTROL</div>
+  </div>
+ </div>
+</main>
+
+<footer>JARVIS AI MARK 85 • FUTURE TECHNOLOGY</footer>
+
+<script>
+const chat=document.getElementById("chat");
+const input=document.getElementById("message");
+
+function updateClock(){
+ const now=new Date();
+ document.getElementById("clock").textContent=
+ now.toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit"});
+ document.getElementById("date").textContent=
+ now.toLocaleDateString("en-IN");
+}
+updateClock();
+setInterval(updateClock,1000);
+
+function addMessage(text,type){
+ const div=document.createElement("div");
+ div.className="msg "+type;
+ div.textContent=text;
+ chat.appendChild(div);
+ chat.scrollTop=chat.scrollHeight;
+}
+
+function sendMessage(){
+ const text=input.value.trim();
+ if(!text)return;
+ addMessage(text,"user");
+ input.value="";
+ setTimeout(()=>{
+  addMessage("I received your command. My AI connection is not configured yet. The next development step will connect a real AI model to JARVIS.","bot");
+ },400);
+}
+
+input.addEventListener("keydown",e=>{
+ if(e.key==="Enter")sendMessage();
+});
+
+function startVoice(){
+ const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SpeechRecognition){
+  addMessage("Voice recognition is not supported in this browser.","bot");
+  return;
+ }
+ const recognition=new SpeechRecognition();
+ recognition.lang="hi-IN";
+ recognition.onstart=()=>addMessage("Listening... Speak now.","bot");
+ recognition.onresult=e=>{
+  input.value=e.results[0][0].transcript;
+  sendMessage();
+ };
+ recognition.onerror=()=>addMessage("Voice recognition error. Please try again.","bot");
+ recognition.start();
+}
+</script>
+</body>
+</html>
